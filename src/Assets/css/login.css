@@ -1,0 +1,35 @@
+.login-container{
+    background: "linear-gradient(#e66465, #9198e5)";
+    height: "100vh";
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+}
+.login-card{
+    width: '18rem';
+}
+.login-heading{
+    margin: "1rem 0 2rem 0"; 
+}
+.forgotpass-link{
+    float: "right";
+    margin-top: ".5rem";
+}
+.Login-btn{
+    background: "linear-gradient(#e66465, #9198e5)";
+    border-radius: "50px";
+    width: "100%";
+    margin-top: "1.5rem";
+}
+.signup-options-heading .signup-link-div{
+    margin-top: "2rem";
+}
+.social-signup-links{
+    display: "flex";
+    gap: ".5rem";
+    justify-content: "center";
+    margin-top: "-10px";
+}
+.icon-color{
+    color: "blue";
+}

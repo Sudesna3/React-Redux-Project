@@ -1,20 +1,25 @@
 import React from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
+//import {google_signin_URL} from "../../components/envConfig";
+import { social } from "../socialLinks";
+import "../../Assets/css/login.css";
+
 
 const Login = () => {
 
     return(
         <>
-        <Row>
-        <Col md={{ span: 4, offset: 4 }}>
-<Card style={{ width: '18rem', backgroundColor: "pink" }}>
+        <div className="login-container">
+    <Card className="login-card">
       <Card.Body>
-      <Form.Floating className="mb-3">
+        <h4 className="login-heading">Login</h4>
+      <Form.Floating className="mb-3" >
         <Form.Control
           id="floatingInputCustom"
           type="email"
           placeholder="name@example.com"
+          required
         />
         <label htmlFor="floatingInputCustom">Email address</label>
       </Form.Floating>
@@ -23,14 +28,25 @@ const Login = () => {
           id="floatingPasswordCustom"
           type="password"
           placeholder="Password"
+          required
         />
         <label htmlFor="floatingPasswordCustom">Password</label>
       </Form.Floating>
+      <a href="#forgotpassword" className="forgotpass-link">Forgot Password?</a>
+      <Button className="Login-btn">Login</Button>
+      <p className="signup-options-heading">or Sign Up Using</p>
+      <div className="social-signup-links">
+      <a href="#facebook"><i class="bi bi-facebook" style={{color: "blue"}}></i></a>
+      <a href="#twitter"><i class="bi bi-twitter"  style={{color: "blue"}}></i></a>
+      <a href={social.googlesingin} target='_blank'><i class="bi bi-google" style={{color: "blue"}}></i></a>
+      </div>
+      {/* <p>or Sign Up Using</p> */}
+      <div className="signup-link-div">
+      <a href="#signup">SIGN UP</a>
+      </div>
       </Card.Body>
     </Card>
-    </Col>
-
-    </Row>
+    </div>
         </>
     )
 }
