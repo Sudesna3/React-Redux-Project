@@ -7,16 +7,26 @@ let {
     LOGOUT
 } = login_types;
 
-const requestLoginApi = () =>{
+const getSuccess = (data, type) => {
+return {
+    data,
+    type
+}
+}
+
+const requestLoginApi = () => {
     return dispatch => {
         dispatch({type: LOGIN_REQUEST})
     }
 }
 
-const successLoginApi = () =>{
-    return dispatch => {
-        dispatch({type: LOGIN_SUCCESS})
-    }
+const successLoginApi = (email,password) =>{
+    return  (
+        //getSuccess(userdata, LOGIN_SUCCESS)
+       { type: LOGIN_SUCCESS,
+        payload: email, password}
+    
+    )
 }
 
 const failedtLoginApi = () =>{
@@ -24,3 +34,5 @@ const failedtLoginApi = () =>{
         dispatch({type: LOGIN_FAILED})
     }
 }
+
+export {requestLoginApi, successLoginApi, failedtLoginApi};
