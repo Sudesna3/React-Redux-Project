@@ -6,6 +6,7 @@ import { social } from "../socialLinks";
 import "../../Assets/css/login.css";
 import { useSelector, useDispatch } from "react-redux";
 import {requestLoginApi, successLoginApi, failedtLoginApi} from "../../redux/actions/loginActions";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -69,14 +70,14 @@ const isAuthenticating = useSelector((state) => state.auth);
       <Button className="Login-btn" onClick={submitForm}>Login</Button>
       </form>
       <p className="signup-options-heading">or Sign Up Using</p>
-      <div className="social-signup-links">
+      {/* <div className="social-signup-links">
       <a href="#facebook"><i className="bi bi-facebook" style={{color: "blue"}}></i></a>
       <a href="#twitter"><i className="bi bi-twitter"  style={{color: "blue"}}></i></a>
       <a href={social.googlesingin} target='_blank'><i className="bi bi-google" style={{color: "blue"}}></i></a>
-      </div>
+      </div> */}
       {/* <p>or Sign Up Using</p> */}
       <div className="signup-link-div">
-      <a href="/Signup">SIGN UP</a>
+      <Link to="/signup">SIGN UP</Link>
       </div>
       </Card.Body>
     </Card>

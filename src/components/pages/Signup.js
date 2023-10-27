@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { social } from "../socialLinks";
 import "../../Assets/css/login.css";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
 const [userName, setUserName] = useState("");
@@ -19,7 +20,7 @@ console.log(userName, userEmail, userPassword, confirmPassword);
         <div className="login-container">
     <Card className="login-card">
       <Card.Body>
-        <h4 className="login-heading">Login</h4>
+        <h4 className="login-heading">Sign Up</h4>
     <form>
       <Form.Floating className="mb-3" >
         <Form.Control
@@ -31,7 +32,10 @@ console.log(userName, userEmail, userPassword, confirmPassword);
           type="email"
           placeholder="name@example.com"
         />
-        <Form.Control
+        <label htmlFor="floatingInputCustom">Email address</label>
+      </Form.Floating>
+      <Form.Floating className="mb-3" >
+      <Form.Control
           name="name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
@@ -40,9 +44,9 @@ console.log(userName, userEmail, userPassword, confirmPassword);
           type="text"
           placeholder="name@example.com"
         />
-        <label htmlFor="floatingInputCustom">Email address</label>
+        <label htmlFor="floatingInputCustom">User Name</label>
       </Form.Floating>
-      <Form.Floating>
+      <Form.Floating className="mb-3">
         <Form.Control
           name="password"
           value={userPassword}
@@ -52,7 +56,10 @@ console.log(userName, userEmail, userPassword, confirmPassword);
           type="password"
           placeholder="Password"
         />
-        <Form.Control
+        <label htmlFor="floatingPasswordCustom">Password</label>
+      </Form.Floating>
+      <Form.Floating className="mb-3">
+      <Form.Control
           name="confirmpassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
@@ -61,9 +68,8 @@ console.log(userName, userEmail, userPassword, confirmPassword);
           type="password"
           placeholder="Password"
         />
-        <label htmlFor="floatingPasswordCustom">Password</label>
+        <label htmlFor="floatingPasswordCustom">Confirm Password</label>
       </Form.Floating>
-      <a href="#forgotpassword" className="forgotpass-link">Forgot Password?</a>
       <Button className="Login-btn" onClick={submitSignupForm}>Signup</Button>
       </form>
       <p className="signup-options-heading">or Sign Up Using</p>
@@ -74,7 +80,7 @@ console.log(userName, userEmail, userPassword, confirmPassword);
       </div>
       {/* <p>or Sign Up Using</p> */}
       <div className="signup-link-div">
-      <a href="#signup">SIGN UP</a>
+      <Link to="/">Login</Link>
       </div>
       </Card.Body>
     </Card>
