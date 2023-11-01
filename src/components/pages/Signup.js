@@ -3,16 +3,33 @@ import { Button, Card, Form } from "react-bootstrap";
 import { social } from "../socialLinks";
 import "../../Assets/css/login.css";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Signup = () => {
 const [userName, setUserName] = useState("");
 const [userEmail, setuserEmail] = useState("");
 const [userPassword, setUserPassword] = useState("");
 const [confirmPassword, setConfirmPassword] = useState("");
+const [signupData, setSignupData] = useState([]);
+
+const datauser = {userName, userEmail, userPassword, confirmPassword};
 
 const submitSignupForm = (e) => {
-e.preventdefault();
-console.log(userName, userEmail, userPassword, confirmPassword);
+e.preventDefault();
+//setSignupData({...signupData, data});
+//console.log(userName, userEmail, userPassword, confirmPassword);
+console.log(signupData);
+
+const url = 'http://localhost:3030/postUserData'
+axios.post(url, datauser)
+      .then(response => {
+        // Handle the response data here
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        // Handle any errors here
+        console.error('Error:', error);
+      });
 }
 
     return(
