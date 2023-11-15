@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { social } from "../socialLinks";
 import "../../Assets/css/login.css";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-
+import {google_signin_URL} from "../envConfig/index"
 const Signup = () => {
 const [userName, setUserName] = useState("");
 const [userEmail, setuserEmail] = useState("");
@@ -20,7 +20,8 @@ e.preventDefault();
 //console.log(userName, userEmail, userPassword, confirmPassword);
 console.log(signupData);
 
-const url = 'http://localhost:3030/postUserData'
+//const url = 'http://localhost:3030/postUserData'
+const url = google_signin_URL
 axios.post(url, datauser)
       .then(response => {
         // Handle the response data here
@@ -31,6 +32,11 @@ axios.post(url, datauser)
         console.error('Error:', error);
       });
 }
+
+useEffect(() => {
+  console.log(google_signin_URL, "derferer");
+}, [])
+
 
     return(
         <>

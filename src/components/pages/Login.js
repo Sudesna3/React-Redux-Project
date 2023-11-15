@@ -7,7 +7,7 @@ import "../../Assets/css/login.css";
 import { useSelector, useDispatch } from "react-redux";
 import {requestLoginApi, successLoginApi, failedtLoginApi} from "../../redux/actions/loginActions";
 import { Link } from "react-router-dom";
-
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,8 +29,26 @@ const isAuthenticating = useSelector((state) => state.auth);
         else{
           //console.log(isAuthenticating);
           //dispatch(successLoginApi(userdata));
-          dispatch(successLoginApi(email,password));
-          console.log(dispatch(successLoginApi(userdata)));
+          //dispatch(successLoginApi(email,password));
+          //console.log(dispatch(successLoginApi(userdata)));
+          //const url = 'http://localhost:3030/postUserData'
+          axios.get('http://localhost:3030/postUserData')
+          .then(response => {
+            const users = response.data;
+            const user = users.find(u => u.userEmail === email && u.userPassword === password);
+            console.log(users, "response")
+
+            if (user) {
+              // Login successful
+              console.log("login successfull");
+            } else {
+              // Login failed
+              console.log("login faild")
+            }
+          })
+          .catch(error => {
+            // Handle error
+          });
         }
   }
 

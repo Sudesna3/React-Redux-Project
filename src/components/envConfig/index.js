@@ -1,5 +1,9 @@
-// const { Google_Signin } = process.env
+//  const GOOGLE_SIGNIN = process.env.GOOGLE_SIGNIN
 
-// const google_signin_URL = Google_Signin
+//  export const google_signin_URL = GOOGLE_SIGNIN
 
-// export {google_signin_URL}
+ //export default google_signin_URL;
+
+export const google_signin_URL = process.env.REACT_APP_GOOGLE_SIGNIN
+
+// export default google_signin_URL;
