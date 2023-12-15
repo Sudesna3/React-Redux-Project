@@ -1,0 +1,25 @@
+.appbarCardContent{
+    display: flex;
+    justify-content: center; 
+    gap: 2rem;
+    padding: 10px !important;
+}
+.iconbutton{
+ background: red !important;
+}
+
+.appbarcard {
+    background-color: rgba(200, 194, 234, 0.384) !important;
+    border-radius: 50px !important;
+    width: fit-content;
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    animation: float 1s;
+}
+
+@keyframes float{
+	0% {bottom: -10%;}
+	100% {bottom: 20%;}	
+}

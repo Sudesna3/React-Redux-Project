@@ -4,15 +4,33 @@ import { social } from "../socialLinks";
 import "../../Assets/css/login.css";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import {google_signin_URL} from "../envConfig/index"
+import {google_signin_URL} from "../envConfig/index";
+//import jwt from 'jsonwebtoken';
+
 const Signup = () => {
+
 const [userName, setUserName] = useState("");
 const [userEmail, setuserEmail] = useState("");
 const [userPassword, setUserPassword] = useState("");
 const [confirmPassword, setConfirmPassword] = useState("");
 const [signupData, setSignupData] = useState([]);
 
+
 const datauser = {userName, userEmail, userPassword, confirmPassword};
+
+const secretKey = 'yourSecretKey';
+    
+    // Replace the following payload with the data you want to include in the token
+    const payload = {
+      userId: '123456',
+      username: 'example_user',
+    };
+
+    // Replace '1h' with the desired expiration time (e.g., '1h' for 1 hour, '7d' for 7 days)
+    const expiresIn = '1h';
+
+    // Create the token
+    //const token = jwt.sign(payload, secretKey, { expiresIn });
 
 const submitSignupForm = (e) => {
 e.preventDefault();
